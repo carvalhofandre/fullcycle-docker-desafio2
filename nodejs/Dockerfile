@@ -13,6 +13,7 @@ RUN apt-get update \
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/*
 
 RUN npm install express
+RUN npm install ejs
 
 # copy the generated modules and all other files to the container
 COPY . .

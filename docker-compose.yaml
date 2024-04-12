@@ -6,7 +6,9 @@ services:
       context: ./nodejs
     container_name: nodeserver
     entrypoint: dockerize -wait tcp://nodedb:3306 -timeout 20s docker-entrypoint.sh
-    command: node index.js
+    command: sh -c "npm install && node index.js"
+    volumes:
+      - ./nodejs:/usr/src/app
     networks:
       - node-network
     tty: true
